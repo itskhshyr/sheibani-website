@@ -1,0 +1,4 @@
+import '@/app/globals.css'; import type { Metadata } from 'next'; import { Vazirmatn } from 'next/font/google';
+const vazirmatn=Vazirmatn({subsets:['arabic','latin'],display:'swap',variable:'--font-vazirmatn'});
+export const metadata:Metadata={title:'آکادمی محمدامین شیبانی | آموزش بازارهای مالی',description:'آموزش کاربردی بازارهای مالی، تحلیل تکنیکال، مدیریت سرمایه و بازارهای جهانی.',keywords:['آموزش بازارهای مالی','تحلیل تکنیکال','ارز دیجیتال','فارکس','بورس آمریکا','مدیریت سرمایه'],openGraph:{title:'آکادمی محمدامین شیبانی',description:'آموزش کاربردی بازارهای مالی با نگاه تحلیلی.',type:'website',locale:'fa_IR'}};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="fa" dir="rtl" className={vazirmatn.variable}><body className="font-sans antialiased">{children}</body></html>}

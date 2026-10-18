@@ -1,0 +1,99 @@
+@font-face { font-family: 'Peyda'; src: url('/fonts/Peyda-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/Peyda-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/Peyda-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/Peyda-ExtraBold.ttf') format('truetype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Tanha'; src: url('/fonts/Tanha-FD-WOL.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+
+:root { --font-body: 'Peyda', Tahoma, Arial, sans-serif; --font-display: 'Peyda', Tahoma, Arial, sans-serif; }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium editorial palette */
+    --background: 40 33% 97%; /* #F8F7F4 */
+    --foreground: 215 14% 11%; /* #17191D */
+    --card: 0 0% 100%;
+    --card-foreground: 215 14% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 14% 11%;
+    --primary: 168 67% 29%; /* #167C63 accent green */
+    --primary-foreground: 40 33% 97%;
+    --secondary: 40 16% 94%;
+    --secondary-foreground: 215 14% 11%;
+    --muted: 40 16% 94%;
+    --muted-foreground: 220 6% 49%; /* #777B84 */
+    --accent: 140 32% 93%; /* #E6F2EC pale green */
+    --accent-foreground: 168 67% 29%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 14% 90%; /* #E7E5E0 */
+    --input: 40 14% 90%;
+    --ring: 168 67% 29%;
+    --chart-1: 168 67% 29%;
+    --chart-2: 200 60% 40%;
+    --chart-3: 30 70% 50%;
+    --chart-4: 45 75% 55%;
+    --chart-5: 340 60% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-feature-settings: 'ss01', 'cv01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@keyframes float-soft{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes scale-in{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@keyframes slide-in-left{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@layer utilities{.reveal-scale{animation:scale-in .8s cubic-bezier(.22,1,.36,1) both}.reveal-left{animation:slide-in-left .8s cubic-bezier(.22,1,.36,1) both}.float-soft{animation:float-soft 5s ease-in-out infinite}}
+@media (prefers-reduced-motion: reduce){.reveal-scale,.reveal-left,.float-soft{animation:none!important}}
