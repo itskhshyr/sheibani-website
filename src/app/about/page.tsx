@@ -1,0 +1,16 @@
+﻿import Link from "next/link";
+import { ArrowLeft, Check } from "lucide-react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { site } from "@/data/site";
+
+export const metadata = { title: "درباره ما | آکادمی امین شیبانی", description: "آشنایی با نگاه آموزشی و مسیر آکادمی امین شیبانی." };
+
+export default function AboutPage() {
+  return <><Header /><main>
+    <section className="border-b border-border"><div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28"><p className="text-xs font-semibold tracking-[.18em] text-primary">درباره آکادمی</p><h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight sm:text-6xl">یادگیری بازار، با نگاه عمیق‌تر و تصمیم‌های آرام‌تر.</h1><p className="mt-6 max-w-2xl text-sm leading-8 text-muted-foreground sm:text-base">اینجا قرار نیست فقط نمودارها را دنبال کنید؛ قرار است طرز فکر، نظم و مهارت لازم برای مواجهه حرفه‌ای با بازارهای مالی را بسازید.</p></div></section>
+    <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[.8fr_1.2fr] lg:items-start"><div><p className="text-sm text-primary">داستان ما</p><h2 className="mt-4 text-3xl font-semibold leading-tight">آموزش ساده، عمیق و قابل استفاده.</h2></div><div className="space-y-6 text-sm leading-8 text-muted-foreground sm:text-base"><p>آکادمی امین شیبانی برای کسانی ساخته شده که می‌خواهند بازارهای مالی را فراتر از هیجان و سیگنال‌های کوتاه‌مدت بشناسند.</p><p>در این مسیر، تحلیل تکنیکال، مدیریت سرمایه و روان‌شناسی معامله‌گری کنار هم قرار می‌گیرند تا یادگیری از یک مجموعه اطلاعات پراکنده به یک مهارت واقعی تبدیل شود.</p><div className="grid grid-cols-2 gap-4 border-y border-border py-8 sm:grid-cols-3"><div><strong className="text-3xl text-foreground">{site.experienceYears}+</strong><span className="mt-1 block text-xs">سال تجربه</span></div><div><strong className="text-3xl text-foreground">{site.coursesHeld}+</strong><span className="mt-1 block text-xs">دوره و کارگاه</span></div><div><strong className="text-3xl text-foreground">۱</strong><span className="mt-1 block text-xs">مسیر یادگیری منسجم</span></div></div></div></section>
+    <section className="border-y border-border bg-accent/50"><div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"><p className="text-sm text-primary">اصول ما</p><div className="mt-8 grid gap-5 md:grid-cols-3">{['شفافیت قبل از هیجان', 'تمرین قبل از ادعا', 'نظم قبل از نتیجه'].map((item) => <div key={item} className="rounded-2xl border border-border bg-background p-6"><Check className="h-5 w-5 text-primary" /><h3 className="mt-6 font-semibold">{item}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">هر قدم کوچک اما درست، بخشی از یک مسیر حرفه‌ای و ماندگار است.</p></div>)}</div></div></section>
+    <section className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-5 py-16 sm:px-8 sm:py-24 md:flex-row md:items-center md:justify-between"><div><p className="text-sm text-primary">آماده شروع هستید؟</p><h2 className="mt-3 text-3xl font-semibold">از همین‌جا مسیر یادگیری را شروع کنید.</h2></div><Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">تماس با من <ArrowLeft className="h-4 w-4" /></Link></section>
+  </main><Footer /></>;
+}
